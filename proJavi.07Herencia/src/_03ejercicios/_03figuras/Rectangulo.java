@@ -26,11 +26,6 @@ public class Rectangulo extends Figura {
 		this.alto = alto;
 	}
 
-	public String toString(){
-		return "Rectangulo: " + super.toString() + 
-				String.format(" - Tamanyo: (%d,%d)", ancho,alto);
-	}
-
 	public double area() {
 		return ancho * alto;
 	}
@@ -38,4 +33,14 @@ public class Rectangulo extends Figura {
 	public double perimetro() {
 		return 2* ancho + 2 * alto;
 	}
+	
+	//Haciendo una reescritura parcial
+	public boolean equals (Object o) {
+		if(!(o instanceof Circulo)) return false;
+		if(!super.equals(o)) return false;
+		
+		Rectangulo r = (Rectangulo) o;
+		return this.alto == r.alto && this.ancho == r.ancho;
+	}
+
 }

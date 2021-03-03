@@ -15,10 +15,6 @@ public class Circulo extends Figura {
 	public void setRadio(int radio) {
 		this.radio = radio;
 	}
-	public String toString(){
-		return "Circulo: " + super.toString() + 
-				String.format(" - Radio: %d", radio);
-	}
 	
 	public double area(){
 		return Math.PI * radio * radio;
@@ -26,6 +22,15 @@ public class Circulo extends Figura {
 
 	public double perimetro() {
 		return 2 * Math.PI * radio;
+	}
+	
+	public boolean equals (Object o) {
+		if(this == o) return true;
+		if(o == null) return false;
+		if(!(o instanceof Circulo)) return false;
+		Circulo c = (Circulo) o;
+		return this.posX == c.posX && this.posY == c.posY 
+				&& this.color.equals(c.color) && this.radio == c.radio;
 	}
 
 }

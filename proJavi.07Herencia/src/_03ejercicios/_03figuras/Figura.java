@@ -1,9 +1,9 @@
 package _03ejercicios._03figuras;
 
 public abstract class Figura {
-	private int posX;
-	private int posY;
-	private String color;
+	protected int posX;
+	protected int posY;
+	protected String color;
 	
 	public Figura (int posX, int posY, String color){
 		this.posX = posX;
@@ -43,5 +43,13 @@ public abstract class Figura {
 				area(), color,posX,posY);
 	}
 	
+	public boolean equals (Object o) {
+		if(this == o) return true;
+		if(o == null) return false;
+		if(!(o instanceof Figura)) return false;
+		Figura c = (Figura) o;
+		return this.posX == c.posX && this.posY == c.posY 
+				&& this.color.equals(c.color);
+	}
 
 }
